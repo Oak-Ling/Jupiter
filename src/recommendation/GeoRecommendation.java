@@ -16,7 +16,6 @@ import external.TicketMasterClient;
 public class GeoRecommendation {
 	public List<Item> recommendItems(String userId, double lat, double lon) {
 		List<Item> recommendedItems = new ArrayList<Item>();
-		
 
 		// Step 1, get all favorited itemids
 		MySQLConnection connection = new MySQLConnection();

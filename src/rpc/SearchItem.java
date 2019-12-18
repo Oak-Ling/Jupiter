@@ -44,12 +44,11 @@ public class SearchItem extends HttpServlet {
 			return;
 		}
 
-		String userId = request.getParameter("user_id");
+		String userId = session.getAttribute("user_id").toString(); 
 		double lat = Double.parseDouble(request.getParameter("lat"));
 		double lon = Double.parseDouble(request.getParameter("lon"));
 		
 		TicketMasterClient client = new TicketMasterClient();
-		
 		List<Item> items = client.search(lat, lon, null);
 		
 		MySQLConnection connection = new MySQLConnection();

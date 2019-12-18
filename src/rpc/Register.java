@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import db.MySQLConnection;
@@ -32,8 +31,8 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MySQLConnection  connection = new MySQLConnection();
-		JSONObject input = RpcHelper.readJSONObject(request);
 		try {
+			JSONObject input = RpcHelper.readJSONObject(request);
 			String userId = input.getString("user_id");
 			String password = input.getString("password");
 			String firstname = input.getString("first_name");
@@ -46,7 +45,7 @@ public class Register extends HttpServlet {
 				obj.put("status", "User Already Exists");
 			}
 			RpcHelper.writeJsonObject(response, obj);
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			connection.close();

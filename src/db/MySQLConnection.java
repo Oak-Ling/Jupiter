@@ -209,7 +209,6 @@ public class MySQLConnection {
 			System.err.println("DB connection failed");
 			return false;
 		}
-		
 		try {
 			String sql = "SELECT user_id FROM users WHERE user_id = ? AND password = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
