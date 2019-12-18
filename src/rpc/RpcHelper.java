@@ -3,7 +3,6 @@ package rpc;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,19 +62,4 @@ public class RpcHelper {
 		builder.setCategories(categories);
 		return builder.build();
 	}
-	
-	  // Converts a list of Item objects to JSONArray.
-	  public static JSONArray getJSONArray(List<Item> items) {
-	    JSONArray result = new JSONArray();
-	    try {
-	      for (Item item : items) {
-	        result.put(item.toJSONObject());
-	      }
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    }
-	    return result;
-	  }
-
-
 }
